@@ -15,23 +15,23 @@ class EmployeeTracker extends Component {
     search: ""
   };
 
+  componentDidMount() {
+      this.getEmployees();
+  }
+
   getEmployees = () => {
-    API.search()
-      .then(res => this.setState({ result: res.data }))
+    API.employees()
+      .then(res => this.setState({ employees: res.data.results }))
       .catch(err => console.log(err));
   };
 
   render() {
-      console.log(employees)
+      console.log(this.state.employees)
     return (
       <Container>
-        <Navbar />
         <Row>
           <Col md={8}>
-            <Card
-              heading={this.state.result.Title || "Search for a Movie to Begin"}
-            >
-            </Card>
+            <Card />
           </Col>
         </Row>
       </Container>
