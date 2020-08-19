@@ -11,40 +11,26 @@ import API from "../utils/API";
 
 class EmployeeTracker extends Component {
   state = {
-    result: {},
+    employees: {},
     search: ""
   };
 
-  searchEmployees = query => {
-    API.search(query)
+  getEmployees = () => {
+    API.search()
       .then(res => this.setState({ result: res.data }))
       .catch(err => console.log(err));
   };
 
   render() {
+      console.log(employees)
     return (
       <Container>
+        <Navbar />
         <Row>
-          <Col size="md-8">
+          <Col md={8}>
             <Card
               heading={this.state.result.Title || "Search for a Movie to Begin"}
             >
-              <MovieDetail
-                title={this.state.result.Title}
-                src={this.state.result.Poster}
-                director={this.state.result.Director}
-                genre={this.state.result.Genre}
-                released={this.state.result.Released}
-              />
-            </Card>
-          </Col>
-          <Col size="md-4">
-            <Card heading="Search">
-              <SearchForm
-                value={this.state.search}
-                handleInputChange={this.handleInputChange}
-                handleFormSubmit={this.handleFormSubmit}
-              />
             </Card>
           </Col>
         </Row>

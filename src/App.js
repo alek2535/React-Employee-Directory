@@ -2,7 +2,7 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import EmployeeTracker from "./pages/EmployeeTracker";
 
-function App() {
+const App = () => {
   return (
     <Container>
       <EmployeeTracker />
