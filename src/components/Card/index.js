@@ -5,28 +5,25 @@ import {
     ListGroupItem
 } from 'react-bootstrap';
 
-function FriendCard(props) {
+function EmployeeCard(props) {
   return (
-    <Card>
-      <div className="img-container">
-        <Card.Img alt={props.name} src={props.image} />
-      </div>
-      <Card.Body className="content">
-        <ListGroup>
-          <ListGroupItem>
-            <strong>Name:</strong> {props.name}
-          </ListGroupItem>
-          <ListGroupItem>
-            <strong>Occupation:</strong> {props.occupation}
-          </ListGroupItem>
-          <ListGroupItem>
-            <strong>Address:</strong> {props.location}
-          </ListGroupItem>
-        </ListGroup>
-      </Card.Body>
-      <span className="remove">𝘅</span>
+    <Card id={props.id}>
+        <Card.Img alt={`${props.firstName} ${props.lastName}`} src={props.image} />
+        <Card.Body className="content">
+            <ListGroup>
+            <ListGroupItem>
+                <strong>Name:</strong> {`${props.firstName} ${props.lastName}`}
+            </ListGroupItem>
+            <ListGroupItem>
+                <strong>Age:</strong> {props.age}
+            </ListGroupItem>
+            <ListGroupItem>
+                <strong>Location:</strong> {`${props.city}, ${props.country}`}
+            </ListGroupItem>
+            </ListGroup>
+        </Card.Body>
     </Card>
   );
 }
 
-export default FriendCard;
+export default EmployeeCard;
