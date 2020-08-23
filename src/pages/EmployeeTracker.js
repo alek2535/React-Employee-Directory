@@ -6,13 +6,15 @@ import {
 } from 'react-bootstrap';
 
 import EmployeeCard from "../components/Card";
-import Navbar from '../components/Navbar';
+import NavSearch from '../components/Navbar';
 import API from "../utils/API";
 
 class EmployeeTracker extends Component {
   state = {
     employees: [],
-    search: ""
+    search: "",
+    filteredEmployees: [],
+    sortedEmployees: []
   };
 
   componentDidMount() {
@@ -30,6 +32,11 @@ class EmployeeTracker extends Component {
 
     return (
       <Container>
+      <Row>
+        <Col>
+          <NavSearch />
+        </Col>
+      </Row>
         <Row>
         {this.state.employees.map(employee => (
           <Col 
