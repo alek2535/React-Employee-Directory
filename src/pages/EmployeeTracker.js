@@ -4,7 +4,6 @@ import {
     Row,
     Col
 } from 'react-bootstrap';
-
 import EmployeeCard from "../components/Card";
 import NavSearch from '../components/Navbar';
 import API from "../utils/API";
@@ -37,7 +36,7 @@ class EmployeeTracker extends Component {
   handleSearchEmployee = () => {
     const employeesArray = this.state.employees;
     const searchArray = employeesArray.filter(employee => employee.name.first.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 || employee.name.last.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1);
-    
+
     this.setState({
       employees: searchArray
     });
@@ -74,6 +73,12 @@ class EmployeeTracker extends Component {
       if (countryA < countryB) {
         return -1;
       };
+      if (countryA > countryB) {
+        return 1;
+      };
+
+      return 0;
+
     });
     this.setState({
       employees: countryArray
