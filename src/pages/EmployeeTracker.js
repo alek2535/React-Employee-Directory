@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import {
     Container,
     Row,
-    Col,
-    CardDeck
+    Col
 } from 'react-bootstrap';
 
 import EmployeeCard from "../components/Card";
@@ -28,13 +27,23 @@ class EmployeeTracker extends Component {
       .catch(err => console.log(err));
   };
 
-  handleSearchEmployee = event => {
-    const { value } = event.target;
+  handleInputChange = event => {
+     const { value, name } = event.target;
+     this.setState({
+       [name]: value
+     })
+  }
+
+  handleSearchEmployee = () => {
     const employeesArray = this.state.employees;
-    const searchArray = employeesArray.filter(employee => employee.name.first.toLowerCase().indexOf(value.toLowerCase()) !== -1 || employee.name.last.toLowerCase().indexOf(value.toLowerCase()) !== -1);
-      this.setState({
-        employees: searchArray
-      });
+    const searchArray = employeesArray.filter(employee => employee.name.first.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 || employee.name.last.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1);
+    
+    this.setState({
+      employees: searchArray
+    });
+    this.setState({
+      search: ''
+    })
   };
 
   handleAgeDesc = () => {
@@ -80,6 +89,8 @@ class EmployeeTracker extends Component {
           <Col>
             <NavSearch
             search={this.search}
+            getEmployees={this.getEmployees}
+            handleInputChange={this.handleInputChange}
             handleSearchEmployee={this.handleSearchEmployee} 
             handleAgeDesc={this.handleAgeDesc}
             handleAgeAsc={this.handleAgeAsc}

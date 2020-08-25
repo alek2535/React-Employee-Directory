@@ -10,6 +10,8 @@ import {
 function NavSearch(props) {
   const {
     search,
+    getEmployees,
+    handleInputChange,
     handleSearchEmployee,
     handleAgeDesc,
     handleAgeAsc,
@@ -18,7 +20,10 @@ function NavSearch(props) {
   return (
     <>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Navbar.Brand href="#home">Employee-Search</Navbar.Brand>
+            <Navbar.Brand 
+              href="#home"
+              onClick={getEmployees}
+            >Employee-Search</Navbar.Brand>
             <Nav className="mr-auto">
             <Button 
               className="m-1"
@@ -43,8 +48,12 @@ function NavSearch(props) {
               type="text" 
               placeholder="Search for Employee" 
               className="mr-sm-2"
-              onChange={handleSearchEmployee}
+              onChange={handleInputChange}
              />
+             <Button 
+              variant="warning"
+              onClick={handleSearchEmployee}
+             >Search</Button>
             </Form>
         </Navbar>
         <br />
