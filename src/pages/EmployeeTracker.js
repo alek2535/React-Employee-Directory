@@ -36,12 +36,24 @@ class EmployeeTracker extends Component {
       });
   };
 
-  handleFilterFirst = () => {
-
+  handleAgeDesc = () => {
+    const employeesArray = this.state.employees;
+    const ageDescArray = employeesArray.sort((a,b) => {
+      return b.dob.age - a.dob.age;
+    });
+    this.setState({
+      employees: ageDescArray
+    })
   };
 
-  handleFilterLast = () => {
-
+  handleAgeAsc = () => {
+    const employeesArray = this.state.employees;
+    const ageAscArray = employeesArray.sort((a,b) => {
+      return a.dob.age - b.dob.age;
+    });
+    this.setState({
+      employees: ageAscArray
+    })
   };
 
   handleSortLocation = () => {
@@ -57,7 +69,10 @@ class EmployeeTracker extends Component {
         <Col>
           <NavSearch
           search={this.search}
-          handleSearchEmployee={this.handleSearchEmployee} />
+          handleSearchEmployee={this.handleSearchEmployee} 
+          handleAgeDesc={this.handleAgeDesc}
+          handleAgeAsc={this.handleAgeAsc}
+          />
         </Col>
       </Row>
         <Row>

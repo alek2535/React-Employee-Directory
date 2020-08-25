@@ -10,15 +10,23 @@ import {
 function NavSearch(props) {
   const {
     search,
-    handleSearchEmployee
+    handleSearchEmployee,
+    handleAgeDesc,
+    handleAgeAsc
   } = props;
   return (
     <>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Navbar.Brand href="#home">Employee-Search</Navbar.Brand>
             <Nav className="mr-auto">
-            <Button variant="info">Filter By First Name</Button>
-            <Button variant="warning">Filter by Last Name</Button>
+            <Button 
+              variant="info"
+              onClick={handleAgeDesc}
+            >Sort By Oldest Age</Button>
+            <Button 
+            variant="warning"
+            onClick={handleAgeAsc}
+            >Sort By Youngest Age</Button>
             <Button variant="info">Sort by Location</Button>
             </Nav>
             <Form inline>
