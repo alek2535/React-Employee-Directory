@@ -27,6 +27,27 @@ class EmployeeTracker extends Component {
       .catch(err => console.log(err));
   };
 
+  handleSearchEmployee = event => {
+    const { value } = event.target;
+    const employeesArray = this.state.employees;
+    const searchArray = employeesArray.filter(employee => employee.name.first.toLowerCase().indexOf(value.toLowerCase()) !== -1 || employee.name.last.toLowerCase().indexOf(value.toLowerCase()) !== -1);
+      this.setState({
+        employees: searchArray
+      });
+  };
+
+  handleFilterFirst = () => {
+
+  };
+
+  handleFilterLast = () => {
+
+  };
+
+  handleSortLocation = () => {
+
+  };
+
   render() {
       console.log(this.state.employees);
 
@@ -34,7 +55,9 @@ class EmployeeTracker extends Component {
       <Container>
       <Row>
         <Col>
-          <NavSearch />
+          <NavSearch
+          search={this.search}
+          handleSearchEmployee={this.handleSearchEmployee} />
         </Col>
       </Row>
         <Row>
