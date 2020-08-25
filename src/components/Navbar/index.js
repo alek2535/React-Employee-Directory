@@ -12,7 +12,8 @@ function NavSearch(props) {
     search,
     handleSearchEmployee,
     handleAgeDesc,
-    handleAgeAsc
+    handleAgeAsc,
+    handleSortLocation
   } = props;
   return (
     <>
@@ -27,7 +28,10 @@ function NavSearch(props) {
             variant="warning"
             onClick={handleAgeAsc}
             >Sort By Youngest Age</Button>
-            <Button variant="info">Sort by Location</Button>
+            <Button 
+              variant="info"
+              onClick={handleSortLocation}
+            >Sort by Location</Button>
             </Nav>
             <Form inline>
             <FormControl

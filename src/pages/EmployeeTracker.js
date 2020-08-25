@@ -57,7 +57,17 @@ class EmployeeTracker extends Component {
   };
 
   handleSortLocation = () => {
-
+    const employeesArray = this.state.employees;
+    const countryArray = employeesArray.sort((a,b) => {
+      const countryA = a.location.country.toLowerCase();
+      const countryB = b.location.country.toLowerCase();
+      if (countryA < countryB) {
+        return -1;
+      };
+    });
+    this.setState({
+      employees: countryArray
+    })
   };
 
   render() {
@@ -72,6 +82,7 @@ class EmployeeTracker extends Component {
           handleSearchEmployee={this.handleSearchEmployee} 
           handleAgeDesc={this.handleAgeDesc}
           handleAgeAsc={this.handleAgeAsc}
+          handleSortLocation={this.handleSortLocation}
           />
         </Col>
       </Row>
