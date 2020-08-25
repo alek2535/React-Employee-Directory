@@ -21,14 +21,17 @@ function NavSearch(props) {
             <Navbar.Brand href="#home">Employee-Search</Navbar.Brand>
             <Nav className="mr-auto">
             <Button 
+              className="m-1"
               variant="info"
               onClick={handleAgeDesc}
             >Sort By Oldest Age</Button>
             <Button 
-            variant="warning"
-            onClick={handleAgeAsc}
+              className="m-1"
+              variant="warning"
+              onClick={handleAgeAsc}
             >Sort By Youngest Age</Button>
             <Button 
+              className="m-1"
               variant="info"
               onClick={handleSortLocation}
             >Sort by Location</Button>
@@ -42,10 +45,6 @@ function NavSearch(props) {
               className="mr-sm-2"
               onChange={handleSearchEmployee}
              />
-            <Button
-              onChange={handleSearchEmployee}
-              variant="warning"
-            >Search</Button>
             </Form>
         </Navbar>
         <br />

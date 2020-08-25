@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import {
     Container,
     Row,
-    Col
+    Col,
+    CardDeck
 } from 'react-bootstrap';
 
 import EmployeeCard from "../components/Card";
@@ -75,34 +76,35 @@ class EmployeeTracker extends Component {
 
     return (
       <Container>
-      <Row>
-        <Col>
-          <NavSearch
-          search={this.search}
-          handleSearchEmployee={this.handleSearchEmployee} 
-          handleAgeDesc={this.handleAgeDesc}
-          handleAgeAsc={this.handleAgeAsc}
-          handleSortLocation={this.handleSortLocation}
-          />
-        </Col>
-      </Row>
         <Row>
-        {this.state.employees.map(employee => (
-          <Col 
-          key={employee.login.username}
-          md={4}
-          lg={3}>
-            <EmployeeCard
+          <Col>
+            <NavSearch
+            search={this.search}
+            handleSearchEmployee={this.handleSearchEmployee} 
+            handleAgeDesc={this.handleAgeDesc}
+            handleAgeAsc={this.handleAgeAsc}
+            handleSortLocation={this.handleSortLocation}
+            />
+          </Col>
+        </Row>
+        <Row>
+          {this.state.employees.map(employee => (
+            <Col 
+             key={employee.login.username}
+             md={5}
+             lg={4}
+            >
+              <EmployeeCard
                 id={employee.login.username}
                 firstName={employee.name.first}
                 lastName={employee.name.last}
-                image={employee.picture.thumbnail}
+                image={employee.picture.medium}
                 age={employee.dob.age}
                 city={employee.location.city}
                 country={employee.location.country}
-            />
-          </Col>
-          ))}
+              />
+            </Col>
+          ))}   
         </Row>
       </Container>
     );

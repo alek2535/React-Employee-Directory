@@ -8,7 +8,6 @@ import {
 
 function EmployeeCard(props) {
   return (
-    <CardGroup>
         <Card id={props.id} bg="info" border="dark" className="m-2">
             <Card.Img alt={`${props.firstName} ${props.lastName}`} src={props.image} className="p-2"/>
             <Card.Body className="content">
@@ -25,7 +24,6 @@ function EmployeeCard(props) {
                 </ListGroup>
             </Card.Body>
         </Card>
-    </CardGroup>
   );
 }
 
